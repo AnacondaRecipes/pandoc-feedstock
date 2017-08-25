@@ -19,8 +19,8 @@ build:
 
 requirements:
   run:
-    - gmp  # [linux64]
-    - zlib 1.2.11  # [linux64]
+    - gmp   # [linux64]
+    - zlib  # [linux64]
 
 test:
   commands:
