@@ -2,7 +2,8 @@
 
 package:
   name: pandoc
-  version: {{ version }}
+  version: {{ version }}  # [not linux32]
+  version: 1.15.0.6       # [linux32]
 
 source:
   url: https://github.com/jgm/pandoc/releases/download/{{ version }}/pandoc-{{ version }}-1-amd64.deb  # [linux64]
@@ -14,13 +15,17 @@ source:
   url: https://github.com/jgm/pandoc/releases/download/{{ version }}/pandoc-{{ version }}-windows-x86_64.msi  # [win]
   sha256: a95ba5f684f893b43e45d123ce4c70f48a31721b2db0536662943fb8332bdd2e  # [win]
 
+  url: https://copr-be.cloud.fedoraproject.org/results/petersen/pandoc-el5/epel-5-i386/00125413-pandoc/pandoc-1.15.0.6-1.i386.rpm  # [linux32]
+  sha256: 4ed1d4a181366cf07f8a575cd7424f3f032daabd439c2e07c1da867ecf47d79e                                                         # [linux32]
+
 build:
    number: 0
 
 requirements:
   run:
-    - gmp   # [linux64]
-    - zlib  # [linux64]
+    - gmp     # [linux]
+    - zlib    # [linux]
+    - libffi  # [linux32]
 
 test:
   commands:
@@ -41,5 +46,6 @@ about:
 extra:
   recipe-maintainers:
     - jankatins
+    - mingwandroid
     - ocefpaf
     - dhimmel
