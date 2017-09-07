@@ -12,8 +12,10 @@ elif [[ $(uname) == Linux ]] && [[ $(uname -m) == i686 ]]; then
     done
     mv usr/bin/* ${PREFIX}/bin/
     for EXE in pandoc pandoc-citeproc; do
-        patchelf --replace-needed libgmp.so.3 libgmp.so.10 ${PREFIX}/bin/${EXE}
-        patchelf --replace-needed libffi.so.5 libffi.so.6  ${PREFIX}/bin/${EXE}
+        if [[ -f ${PREFIX}/bin/${EXE} ]]; then
+            patchelf --replace-needed libgmp.so.3 libgmp.so.10 ${PREFIX}/bin/${EXE}
+            patchelf --replace-needed libffi.so.5 libffi.so.6  ${PREFIX}/bin/${EXE}
+        fi
     done
 elif [[ $(uname) == Darwin ]]; then
     pkgutil --expand pandoc-${PKG_VERSION}.pkg pandoc
