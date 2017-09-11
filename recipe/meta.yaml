@@ -23,8 +23,9 @@ build:
 
 requirements:
   run:
-    - gmp   # [linux]
-    - zlib  # [linux]
+    - gmp     # [linux]
+    - zlib    # [linux]
+    - libffi  # [linux32]
 
 test:
   commands:
