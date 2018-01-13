@@ -5,7 +5,7 @@ if [[ $(uname) == Linux ]] && [[ $(uname -m) == x86_64 ]]; then
     ar vx pandoc*.deb
     tar --extract --xz --verbose --file=data.tar.xz
     mv usr/bin/* ${PREFIX}/bin/
-elif [[ $(uname) == Linux ]] && [[ $(uname -m) == i686 ]]; then
+elif [[ $(uname) == Linux ]] && ( [[ $(uname -m) == i686 ]] || [[ $(uname -m) == ppc64le ]] ); then
     RPMS=$(find . -name "*.rpm")
     for RPM in ${RPMS}; do
         rpm2cpio ${RPM} | cpio -idv
