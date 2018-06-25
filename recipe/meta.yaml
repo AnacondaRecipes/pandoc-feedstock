@@ -13,8 +13,11 @@ source:
   url: https://github.com/jgm/pandoc/releases/download/{{ version }}/pandoc-{{ version }}-macOS.pkg  # [osx]
   sha256: ad84eac40c1c93610e72eda00bc38b03d8fb2b515151c0439a61fcb3eaf45c95  # [osx]
 
-  url: https://github.com/jgm/pandoc/releases/download/{{ version }}/pandoc-{{ version }}-windows-x86_64.msi  # [win]
-  sha256: a95ba5f684f893b43e45d123ce4c70f48a31721b2db0536662943fb8332bdd2e  # [win]
+  url: https://github.com/jgm/pandoc/releases/download/{{ version }}/pandoc-{{ version }}-windows-x86_64.zip  # [win64]
+  sha256: 034cb93640ae31d0739539d1ad9e6aa4dce36433a366e245aa0a0ab158ff156d                                    # [win64]
+
+  url: https://github.com/jgm/pandoc/releases/download/{{ version }}/pandoc-{{ version }}-windows-i386.zip    # [win32]
+  sha256: 7190abc7fb217ca242ff76ef300b2de4b90897103671d5ec74944c4ce70bf80d                                    # [win32]
 
   url: https://copr-be.cloud.fedoraproject.org/results/petersen/pandoc-el5/epel-5-i386/00125413-pandoc/pandoc-1.15.0.6-1.i386.rpm  # [linux32]
   sha256: 4ed1d4a181366cf07f8a575cd7424f3f032daabd439c2e07c1da867ecf47d79e                                                         # [linux32]
