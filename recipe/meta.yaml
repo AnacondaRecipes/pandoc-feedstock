@@ -23,7 +23,10 @@ source:
   sha256: ddcd2e07bbbabb546d62fa35b0ef4f9c84f788d434485e8af62708f646b1ad29                                                                  # [ppc64le]
 
 build:
-   number: 0
+  number: 0
+  # pandoc is a repacked binary, whitelist all DSOs
+  missing_dso_whitelist:
+    - '*'
 
 requirements:
   run:
