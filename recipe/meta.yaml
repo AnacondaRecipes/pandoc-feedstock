@@ -12,10 +12,10 @@ source:
   sha256: c4847f7a6e6a02a7d1b8dc17505896d8a6e4c2ee9e8b325e47a0468036675307  # [osx]
 
   url: https://github.com/jgm/pandoc/releases/download/{{ version }}/pandoc-{{ version }}-windows-x86_64.zip  # [win64]
-  sha256: 034cb93640ae31d0739539d1ad9e6aa4dce36433a366e245aa0a0ab158ff156d                                    # [win64]
+  sha256: 223f7ef1dd926394ee57b6b5893484e51100be8527bd96eec26e284774863084  # [win64]
 
   url: https://github.com/jgm/pandoc/releases/download/{{ version }}/pandoc-{{ version }}-windows-i386.zip    # [win32]
-  sha256: 7190abc7fb217ca242ff76ef300b2de4b90897103671d5ec74944c4ce70bf80d                                    # [win32]
+  sha256: db5a8533b7e2ef38114e9788e56530bb6be330c326731692f236218682017d4d  # [win32]
 
 build:
   number: 0
