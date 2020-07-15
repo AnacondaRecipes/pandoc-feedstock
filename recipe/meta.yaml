@@ -2,8 +2,9 @@
 
 package:
   name: pandoc
-  version: {{ version }}  # [not ppc64le]
+  version: {{ version }}  # [not ppc64le and not win32]
   version: 2.2.1  # [ppc64le]
+  version: 2.9.2.1  # [win32]
 
 source:
   url: https://github.com/jgm/pandoc/releases/download/{{ version }}/pandoc-{{ version }}-linux-amd64.tar.gz  # [linux64]
@@ -15,7 +16,8 @@ source:
   url: https://github.com/jgm/pandoc/releases/download/{{ version }}/pandoc-{{ version }}-windows-x86_64.zip  # [win64]
   sha256: 223f7ef1dd926394ee57b6b5893484e51100be8527bd96eec26e284774863084  # [win64]
 
-  url: https://github.com/jgm/pandoc/releases/download/{{ version }}/pandoc-{{ version }}-windows-i386.zip    # [win32]
+  # upstream no longer provides win-32 binaries
+  url: https://github.com/jgm/pandoc/releases/download/2.9.2.1/pandoc-2.9.2.1-windows-i386.zip    # [win32]
   sha256: db5a8533b7e2ef38114e9788e56530bb6be330c326731692f236218682017d4d  # [win32]
 
   # repackage the RPM built for EPEL
