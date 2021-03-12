@@ -1,20 +1,23 @@
-{% set version = "2.10.1" %}
+{% set version = "2.12" %}
 
 package:
   name: pandoc
   version: {{ version }}  # [not ppc64le and not win32]
-  version: "2.10.1"  # [ppc64le]
-  version: "2.10.1"  # [win32]
+  version: "2.2.1"  # [ppc64le]
+  version: "2.9.2.1"  # [win32]
 
 source:
   url: https://github.com/jgm/pandoc/releases/download/{{ version }}/pandoc-{{ version }}-linux-amd64.tar.gz  # [linux64]
-  sha256: 5a9818493f8b14821c5fb44234c898f776faf011089dc77e1dcf6ba3e51e0a81  # [linux64]
+  sha256: 6d89c16f31ef4cd826133b35bbe978dd2ca7328d7b8d51fbaf2c02ca5b5553e0  # [linux64]
+
+  url: https://github.com/jgm/pandoc/releases/download/{{ version }}/pandoc-{{ version }}-linux-arm64.tar.gz  # [aarch64]
+  sha256: ec41752bcea7416d00e7f845d58351dc831246b910004cfe62d52079085a640a  # [aarch64]
 
   url: https://github.com/jgm/pandoc/releases/download/{{ version }}/pandoc-{{ version }}-macOS.zip  # [osx]
-  sha256: 5a9818493f8b14821c5fb44234c898f776faf011089dc77e1dcf6ba3e51e0a81  # [osx]
+  sha256: 7a23d5ed5e4eab251c8c208a25330a53787eec8216e4b768f194f850a64dc664  # [osx]
 
   url: https://github.com/jgm/pandoc/releases/download/{{ version }}/pandoc-{{ version }}-windows-x86_64.zip  # [win64]
-  sha256: 5a9818493f8b14821c5fb44234c898f776faf011089dc77e1dcf6ba3e51e0a81  # [win64]
+  sha256: 3ed3283438a1a3d45b8c1fb3cddb87cf93c86064b84de4f8521436292ed94e50  # [win64]
 
   # upstream no longer provides win-32 binaries
   url: https://github.com/jgm/pandoc/releases/download/2.9.2.1/pandoc-2.9.2.1-windows-i386.zip    # [win32]
