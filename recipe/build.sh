@@ -2,6 +2,11 @@
 set -euo pipefail
 IFS=$'\n\t'
 
+# The pandoc binary for arm64 is in /usr/bin
+if [[ ${target_platform} =~ .*linux-aarch64.* ]]; then
+    cd usr/
+fi
+
 mkdir -p ${PREFIX}/bin
 mv bin/* ${PREFIX}/bin
 
