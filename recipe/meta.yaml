@@ -21,7 +21,7 @@ source:
 
   # upstream no longer provides win-32 binaries
   url: https://github.com/jgm/pandoc/releases/download/2.9.2.1/pandoc-2.9.2.1-windows-i386.zip    # [win32]
-  sha256: 5a9818493f8b14821c5fb44234c898f776faf011089dc77e1dcf6ba3e51e0a81  # [win32]
+  sha256: db5a8533b7e2ef38114e9788e56530bb6be330c326731692f236218682017d4d  # [win32]
 
   # repackage the RPM built for EPEL
   url: https://copr-be.cloud.fedoraproject.org/results/petersen/pandoc/epel-7-ppc64le/00770404-pandoc/pandoc-2.2.1-1.el7.ppc64le.rpm  # [ppc64le]
