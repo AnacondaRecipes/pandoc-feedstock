@@ -2,9 +2,10 @@
 
 package:
   name: pandoc
-  version: {{ version }}  # [not ppc64le and not win32]
-  version: "2.2.1"  # [ppc64le]
-  version: "2.9.2.1"  # [win32]
+  version: {{ version }}  # [not (ppc64le or win32 or s390x)]
+  version: "1.16.0"       # [s390x]
+  version: "2.2.1"        # [ppc64le]
+  version: "2.9.2.1"      # [win32]
 
 source:
   url: https://github.com/jgm/pandoc/releases/download/{{ version }}/pandoc-{{ version }}-linux-amd64.tar.gz  # [linux64]
@@ -27,8 +28,15 @@ source:
   url: https://copr-be.cloud.fedoraproject.org/results/petersen/pandoc/epel-7-ppc64le/00770404-pandoc/pandoc-2.2.1-1.el7.ppc64le.rpm  # [ppc64le]
   sha256: 5a9818493f8b14821c5fb44234c898f776faf011089dc77e1dcf6ba3e51e0a81  # [ppc64le]
 
+  # s390x ...
+  - url: http://download.sinenomine.net/clefos/epel7/s390x/pandoc-static-1.16.0.2-1.el7.s390x.rpm   # [s390x]
+  - folder: common  # [s390x]
+    url: http://download.sinenomine.net/clefos/epel7/s390x/pandoc-common-1.16.0.2-1.el7.s390x.rpm   # [s390x]
+  - folder: cmark   # [s390x]
+    url: http://download.sinenomine.net/clefos/epel7/s390x/cmark-lib-0.23.0-4.el7.s390x.rpm         # [s390x]
+
 build:
-  number: 1
+  number: 2
   binary_relocation: False  # [osx]
   missing_dso_whitelist:
     - /usr/lib/libiconv.2.dylib  # [osx]
@@ -37,18 +45,20 @@ build:
 
 # The pandoc binary from the RPM depends on libgmp, libz and libffi and system libraries.
 # Add these as host requirements to pick up the correct run_exports
-{% if ARCH == "ppc64le" %}
+{% if ARCH == "ppc64le" or ARCH == "s390x" %}
 requirements:
   build:
     - patchelf
     # we do not actually need a compiler but want the
     # sysroot for link checking and the run_exports
     # avoid {{ compiler('c') }} which adds unneeded hashes on all platforms
-    - gcc_linux-ppc64le
+    - gcc_linux-ppc64le  # [ppc64le]
+    - gcc_linux-s390x    # [s390x]
   host:
     - gmp 6.1.2
     - zlib 1.2.11
     - libffi 3.4
+    - yaml  # [s390x]
   run:
     - libffi >=3.4,<3.5
 {% endif %}
@@ -60,7 +70,7 @@ test:
     - pandoc --help
 
 about:
-  home: http://pandoc.org/
+  home: https://pandoc.org/
   license: GPL-2.0
   license_family: GPL
   license_file: LICENSE
@@ -68,7 +78,7 @@ about:
   description: |
     Pandoc is a Haskell library for converting from one markup format to
     another, and a command-line tool that uses this library.
-  doc_url: http://pandoc.org/MANUAL.html
+  doc_url: https://pandoc.org/MANUAL.html
   dev_url: https://github.com/jgm/pandoc
   doc_source_url: https://github.com/jgm/pandoc/tree/master/doc
 
@@ -78,3 +88,4 @@ extra:
     - ocefpaf
     - dhimmel
     - kiwi0fruit
+    - katietz
