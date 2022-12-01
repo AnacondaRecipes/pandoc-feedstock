@@ -38,10 +38,13 @@ source:
 build:
   number: 2
   binary_relocation: False  # [osx]
-  missing_dso_whitelist:
+  missing_dso_whitelist:  # [osx or s390x]
     - /usr/lib/libiconv.2.dylib  # [osx]
     - /usr/lib/libz.1.dylib  # [osx]
     - /usr/lib/libcharset.1.dylib  # [osx]
+    - $RPATH/liblua-5.1.so  # [s390x]
+    - $RPATH/libpcre.so.1   # [s390x]
+    - $RPATH/libffi.so.6    # [s390x]
 
 # The pandoc binary from the RPM depends on libgmp, libz and libffi and system libraries.
 # Add these as host requirements to pick up the correct run_exports
