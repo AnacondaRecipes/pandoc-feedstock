@@ -24,5 +24,6 @@ if [[ ${target_platform} =~ .*linux-ppc64le.* ]]; then
 fi
 if [[ ${target_platform} =~ .*linux-s390x.* ]]; then
     patchelf --replace-needed libffi.so.8 libffi.so.7  ${PREFIX}/bin/pandoc
+    patchelf --replace-needed libffi.so.6 libffi.so.7  ${PREFIX}/bin/pandoc
 fi
 
