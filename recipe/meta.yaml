@@ -36,7 +36,7 @@ source:
     url: http://download.sinenomine.net/clefos/epel7/s390x/cmark-lib-0.23.0-4.el7.s390x.rpm         # [s390x]
 
 build:
-  number: 2
+  number: 3
   binary_relocation: False  # [osx]
   missing_dso_whitelist:  # [osx or s390x]
     - /usr/lib/libiconv.2.dylib  # [osx]
