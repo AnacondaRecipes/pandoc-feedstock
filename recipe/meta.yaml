@@ -18,7 +18,10 @@ source:
 build:
   number: 0
   binary_relocation: false  # [osx]
+  missing_dso_whitelist:
+    - /usr/lib/libcharset.1.dylib  # [osx]
 
+# Win and linux binaries linked statically, only osx have deps in dynamic section:
 # OSX dynamic section:
 #/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)
 #/usr/lib/libiconv.2.dylib (compatibility version 7.0.0, current version 7.0.0)
@@ -28,7 +31,7 @@ requirements:
   run:
     - zlib  # [osx]
     - libiconv  # [osx]
-    - libffi >=3.4,<3.5
+    - libffi >=3.4,<3.5  # [osx]
 
 test:
   commands:
