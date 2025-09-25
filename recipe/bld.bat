@@ -1,3 +1,6 @@
-if not exist %SCRIPTS% mkdir %SCRIPTS% || exit 1
+@echo on
 
-copy *.exe %SCRIPTS% || exit 1
+MKDIR %LIBRARY_BIN%
+
+MOVE "pandoc.exe" %LIBRARY_BIN%\pandoc.exe
+if errorlevel 1 exit 1
